@@ -1,38 +1,27 @@
-# Provide a custom message
-message: "Hello World"
+# Default values for hello-world.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
 
-# Remember to set service.type=ClusterIP if you are using an ingress
-ingress:
-  # configured: true
-  # rewritePath: true
-  # pathPrefix: "hello-world"
-  configured: false
-  rewritePath: true
-  pathPrefix: ""
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 80
-
-deployment:
-  replicaCount: 2
-  container:
-    image:
-      #repository: mcr.microsoft.com/azuredocs/aks-helloworld:v1
-      repository: "paulbouwer/hello-kubernetes"
-      tag: "" # uses chart appVersion if not provided
-      pullPolicy: IfNotPresent
-    # port: 80
-    port: 8080
-
-  # Currently only linux images on amd64 architecture are supported - support for arm64 and windows/amd64 coming ...
-  nodeSelector:
-    kubernetes.io/os: linux
-    kubernetes.io/arch: amd64
-
-  resources: {}
-
-  tolerations: []
-
-  affinity: {}
-
