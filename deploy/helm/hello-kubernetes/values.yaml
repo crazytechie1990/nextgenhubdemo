@@ -3,12 +3,12 @@ message: "Hello World"
 
 # Remember to set service.type=ClusterIP if you are using an ingress
 ingress:
-  configured: false
+  configured: true
   rewritePath: true
-  pathPrefix: "" 
+  pathPrefix: "hello-world" 
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 80
 
 deployment:
