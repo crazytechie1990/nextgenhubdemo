@@ -3,20 +3,20 @@ message: ""
 
 # Remember to set service.type=ClusterIP if you are using an ingress
 ingress:
-  # configured: false
-  # rewritePath: true
-  # pathPrefix: ""
-  enabled: true
-  className: nginx
-    annotations:
-    # Reference: https://kubernetes.github.io/ingress-nginx/examples/rewrite/
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
-  hosts:
-    - host: chart-example.local
-      paths:
-        - path: /hello-world(/|$)(.*)
-          pathType: ImplementationSpecific  
+  configured: true
+  rewritePath: true
+  pathPrefix: "/hello-world"
+  # enabled: true
+  # className: nginx
+  #   annotations:
+  #   # Reference: https://kubernetes.github.io/ingress-nginx/examples/rewrite/
+  #   nginx.ingress.kubernetes.io/use-regex: "true"
+  #   nginx.ingress.kubernetes.io/rewrite-target: /$2
+  # hosts:
+  #   - host: chart-example.local
+  #     paths:
+  #       - path: /hello-world(/|$)(.*)
+  #         pathType: ImplementationSpecific  
 service:
   # type: LoadBalancer
   type: ClusterIP
