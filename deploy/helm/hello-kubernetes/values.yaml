@@ -19,7 +19,7 @@ deployment:
   container:
     image:
       #repository: mcr.microsoft.com/azuredocs/aks-helloworld:v1
-      repository: "crazytechie1990/nextgenhubdemo"
+      repository: "paulbouwer/hello-kubernetes"
       tag: "" # uses chart appVersion if not provided
       pullPolicy: IfNotPresent
     # port: 80
