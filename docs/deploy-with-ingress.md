@@ -38,11 +38,6 @@ The `hello-world` instance will display the default "Hello world!" message, and 
 helm install --create-namespace --namespace hello-kubernetes hello-world ./hello-kubernetes \
   --set ingress.configured=true --set ingress.pathPrefix=hello-world \
   --set service.type=ClusterIP
-
-helm install --create-namespace --namespace hello-kubernetes custom-message ./hello-kubernetes \
-  --set ingress.configured=true --set ingress.pathPrefix=custom-message \
-  --set service.type=ClusterIP \
-  --set message="This is my custom message!"
 ```
 
 ### Deploy ingress definition
@@ -55,25 +50,26 @@ Create a file named `hello-kubernetes-ingress.yaml` with the content below. This
 
 ```yaml
 # hello-kubernetes-ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-kubernetes-ingress
+  namespace: hello-kubernetes
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
-  - http:
-      paths:
-      - backend:
-          serviceName: hello-kubernetes-hello-world
-          servicePort: 80
-        path: /hello-world(/|$)(.*)
-      - backend:
-          serviceName: hello-kubernetes-custom-message
-          servicePort: 80
-        path: /custom-message(/|$)(.*)
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: hello-kubernetes-hello-world
+                port:
+                  number: 80
+
 ```
 
 Deploy the contents of the `hello-kubernetes-ingress.yaml` into the same namespace as the two `hello-kubernetes` apps.
