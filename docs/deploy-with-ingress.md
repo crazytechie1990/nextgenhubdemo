@@ -83,7 +83,6 @@ kubectl apply -n hello-kubernetes -f hello-kubernetes-ingress.yaml
 You can browse to each of the `hello-kubernetes` apps via the $INGRESS_CONTROLLER_IPADDRESS and each of the configured paths. So for our example at:
 
 - `$INGRESS_CONTROLLER_IPADDRESS/hello-world` - the `hello-world` instance with the default "Hello world!" message
-- `$INGRESS_CONTROLLER_IPADDRESS/custom-message` - the `custom-message` instance with the "This is my custom message!" message
 
 ## Alternatives
 
