@@ -18,12 +18,12 @@ deployment:
   replicaCount: 2
   container:
     image:
-      repository: mcr.microsoft.com/azuredocs/aks-helloworld:v1
-      # repository: "crazytechie1990/nextgenhubdemo"
+      #repository: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+      repository: "crazytechie1990/nextgenhubdemo"
       tag: "" # uses chart appVersion if not provided
       pullPolicy: IfNotPresent
-    port: 80
-    # port: 8080
+    # port: 80
+    port: 8080
 
   # Currently only linux images on amd64 architecture are supported - support for arm64 and windows/amd64 coming ...
   nodeSelector:
