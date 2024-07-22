@@ -7,6 +7,7 @@ If you have [VS Code](https://code.visualstudio.com/) and the [VS Code Remote Co
 The VS Code Terminal will run a Bash shell and make the following utilities will be available:
 
 - curl
+- azure kubernetes services
 - Docker cli
 - Helm 3.x
 - jq
