@@ -2,6 +2,19 @@
 
 If you have [VS Code](https://code.visualstudio.com/) and the [VS Code Remote Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed, the `.devcontainer` folder will be used to provide a container based development environment for this repo.
 
+We have deployed the AKS cluster with default and agent node pool on Azure cloud. We need to access the cluster setting up the kubeconfig.
+
+Set cluster context
+1. Open terminal
+2. Run the following commands
+Login to your azure account
+az login
+Set the cluster subscription
+az account set --subscription <sub-id>
+Download cluster credentials
+az aks get-credentials --resource-group RG1-demo-AKS --name AKS-demo-nxtgenhub --overwrite-existing
+
+
 ## Terminal
 
 The VS Code Terminal will run a Bash shell and make the following utilities will be available:
