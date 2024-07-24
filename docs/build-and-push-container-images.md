@@ -56,14 +56,6 @@ You can push your built `hello-kubernetes` container image to the defined regist
 #   - paulbouwer/hello-kubernetes:1
 make push-image
 
-# REGISTRY=paulbouwer.azurecr.io
-# Push paulbouwer.azurecr.io/paulbouwer/hello-kubernetes:$version to paulbouwer.azurecr.io.
-# Will tag $majorversion and $majorversion.$minorversion.
-#
-# Example: The container image will be tagged as follows for $version=1.10.0
-#   - paulbouwer.azurecr.io/paulbouwer/hello-kubernetes:1.10.0
-#   - paulbouwer.azurecr.io/paulbouwer/hello-kubernetes:1.10
-#   - paulbouwer.azurecr.io/paulbouwer/hello-kubernetes:1
-export REGISTRY=paulbouwer.azurecr.io
+export REGISTRY=nextgenhubdemo.azurecr.io
 make push-image
 ```
