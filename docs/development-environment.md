@@ -8,10 +8,15 @@ Set cluster context
 1. Open terminal
 2. Run the following commands
 Login to your azure account
+
 az login
+
 Set the cluster subscription
+
 az account set --subscription <sub-id>
+
 Download cluster credentials
+
 az aks get-credentials --resource-group RG1-demo-AKS --name AKS-demo-nxtgenhub --overwrite-existing
 
 
