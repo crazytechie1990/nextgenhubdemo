@@ -30,9 +30,15 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
 
 ### Deploy hello-kubernetes instances
 
-Install two `hello-kubernetes` instances that will be available via 2 different paths on the ingress. 
+Ensure that you are in the chart directory in the repo, since the instructions reference a local helm chart.
 
-The `hello-world` instance will display the default "Hello world!" message, and the `custom-message` instance will display a "This is my custom message!" message.
+```bash
+cd deploy/helm
+```
+
+Install `hello-kubernetes` instances that will be available via different path on the ingress. 
+
+The `hello-world` instance will display the default "Hello world!" message.
 
 ```bash
 helm install --create-namespace --namespace hello-kubernetes hello-world ./hello-kubernetes \
